@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chhatrapati Shivaji Maharaj - Animated Tribute</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes swordGlow {
+            0% { filter: drop-shadow(0 0 0px rgba(255,215,0,0)); }
+            50% { filter: drop-shadow(0 0 10px rgba(255,215,0,0.8)); }
+            100% { filter: drop-shadow(0 0 0px rgba(255,215,0,0)); }
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, #1a2a6c 0%, #b21f1f 50%, #fdbb2d 100%);
+        }
+        .fort-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+        .sword-animation:hover {
+            animation: swordGlow 2s infinite;
+        }
+        .timeline-item:nth-child(even) {
+            border-left: 4px solid #b21f1f;
+            padding-left: 16px;
+            margin-left: 20px;
+        }
+        .timeline-item:nth-child(odd) {
+            border-right: 4px solid #b21f1f;
+            padding-right: 16px;
+            margin-right: 20px;
+            text-align: right;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Hero Section -->
+    <section class="hero-section text-white min-h-screen flex items-center justify-center">
+        <div class="container mx-auto px-6 text-center">
+            <div class="animate-fadeIn mb-8">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2721c997-5fc8-4767-9641-3efa074f2f0c.png" alt="Chhatrapati Shivaji Maharaj standing heroically on a fort wall overlooking his kingdom, wearing traditional Maratha warrior attire with sword and shield" class="mx-auto rounded-lg shadow-xl max-w-full h-auto" id="hero-image">
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold animate-slideUp mb-4" style="animation: slideUp 1.5s ease-out;">Chhatrapati Shivaji Maharaj</h1>
+            <p class="text-xl md:text-2xl mb-8 animate-slideUp" style="animation: slideUp 1.8s ease-out;">The Great Maratha Warrior King</p>
+            <div class="animate-slideUp" style="animation: slideUp 2s ease-out;">
+                <button id="quoteBtn" class="bg-yellow-500 hover:bg-yellow-600 text-safron font-bold py-3 px-6 rounded-full transition duration-300 transform hover:scale-105">
+                    Show Inspiring Quote
+                </button>
+                <p id="quoteText" class="mt-4 text-xl italic hidden"></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">Life of The Great Maratha</h2>
+            
+            <div class="grid md:grid-cols-3 gap-10 mb-20">
+                <div class="bg-gray-50 p-8 rounded-xl shadow-md transition duration-300 hover:shadow-lg">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/cd759799-c0f1-4467-b16b-14f2b34a74a6.png" alt="Young Shivaji Maharaj training with sword and shield with his mother Jijabai watching proudly" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-semibold mb-2">Early Life</h3>
+                    <p class="text-gray-600">Born in 1630 at Shivneri Fort, Shivaji Maharaj was trained in martial arts, horse riding and military tactics from a young age under the guidance of his mother Jijabai.</p>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-xl shadow-md transition duration-300 hover:shadow-lg">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/e183351d-c5d2-45b3-8be2-cfc627156d3a.png" alt="Shivaji Maharaj leading his army in battle against Mughal forces, swords drawn and banners waving" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-semibold mb-2">The Maratha Empire</h3>
+                    <p class="text-gray-600">Established Hindavi Swarajya (Self-Rule of Hindu people) and built over 300 forts across his kingdom while resisting Mughal and Adilshahi powers.</p>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-xl shadow-md transition duration-300 hover:shadow-lg">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4e2034d0-9def-44cd-a8d3-7acea1cd35de.png" alt="Shivaji Maharaj's coronation ceremony with priests and nobles gathered in ornate setting" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-semibold mb-2">Coronation</h3>
+                    <p class="text-gray-600">Crowned as Chhatrapati in 1674 at Raigad Fort, marking the formal establishment of the Maratha Empire with an elaborate coronation ceremony.</p>
+                </div>
+            </div>
+
+            <!-- Timeline Section -->
+            <div class="max-w-3xl mx-auto">
+                <h3 class="text-2xl font-bold text-center mb-10 text-maroon">Key Events Timeline</h3>
+                
+                <div class="space-y-8">
+                    <div class="timeline-item">
+                        <p class="text-sm text-gray-500 mb-1">February 19, 1630</p>
+                        <h4 class="text-lg font-semibold mb-2">Birth at Shivneri Fort</h4>
+                        <p class="text-gray-600">Shivaji was born to Shahaji Bhosale and Jijabai in Shivneri Fort, Pune district.</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <p class="text-sm text-gray-500 mb-1">1645</p>
+                        <h4 class="text-lg font-semibold mb-2">First Conquest - Torna Fort</h4>
+                        <p class="text-gray-600">At age 15, Shivaji captured Torna Fort, beginning his military conquests.</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <p class="text-sm text-gray-500 mb-1">1659</p>
+                        <h4 class="text-lg font-semibold mb-2">Battle of Pratapgad</h4>
+                        <p class="text-gray-600">Defeated Afzal Khan using guerilla warfare tactics, establishing his reputation as a brilliant strategist.</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <p class="text-sm text-gray-500 mb-1">1674</p>
+                        <h4 class="text-lg font-semibold mb-2">Coronation as Chhatrapati</h4>
+                        <p class="text-gray-600">Formally crowned as Chhatrapati (sovereign monarch) of the Maratha Empire at Raigad.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Famous Forts Section -->
+    <section class="py-20 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">Legendary Forts of Shivaji Maharaj</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="fort-card bg-white rounded-xl overflow-hidden shadow-md transition duration-300">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/0b4e5d96-61af-4398-9cdd-b2771c205e47.png" alt="Raigad Fort aerial view showing the majestic hilltop fortress surrounded by mountains" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Raigad Fort</h3>
+                        <p class="text-gray-600 mb-4">Capital of the Maratha Empire and site of Shivaji Maharaj's coronation. Known as the 'Gibraltar of the East'.</p>
+                        <button class="fort-details-btn text-blue-600 hover:underline">Read More</button>
+                        <p class="fort-details hidden mt-2 text-gray-500">Raigad was ingeniously designed with triple fortification walls, secret escape routes, and water reservoirs that could sustain the fort for months.</p>
+                    </div>
+                </div>
+                
+                <div class="fort-card bg-white rounded-xl overflow-hidden shadow-md transition duration-300">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f5dde91b-a6e2-401d-9cbd-71a8b83755e2.png" alt="Pratapgad Fort with its massive gates and towering walls amidst lush green mountains" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Pratapgad Fort</h3>
+                        <p class="text-gray-600 mb-4">Site of the historic battle where Shivaji Maharaj killed Afzal Khan, marking a turning point in Maratha history.</p>
+                        <button class="fort-details-btn text-blue-600 hover:underline">Read More</button>
+                        <p class="fort-details hidden mt-2 text-gray-500">The fort has two sections - lower fort and upper fort, connected by a 1 km long, winding road. It offers panoramic views of the Konkan region.</p>
+                    </div>
+                </div>
+                
+                <div class="fort-card bg-white rounded-xl overflow-hidden shadow-md transition duration-300">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/43ecaf99-8e30-4448-93b9-eecfe36ffbbc.png" alt="Sinhagad Fort with stone walls climbing the steep hillside" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Sinhagad Fort</h3>
+                        <p class="text-gray-600 mb-4">Originally called Kondhana, it was the site of the famous Battle of Sinhagad fought by Tanaji Malusare.</p>
+                        <button class="fort-details-btn text-blue-600 hover:underline">Read More</button>
+                        <p class="fort-details hidden mt-2 text-gray-500">The fort was captured in a daring night attack where Tanaji Malusare used a monitor lizard named 'Yashwanti' to climb the steep cliffs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Military Innovation Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">Military Innovations & Navy</h2>
+            
+            <div class="flex flex-col md:flex-row items-center gap-10 mb-16">
+                <div class="w-full md:w-1/2">
+                    <h3 class="text-2xl font-semibold mb-4">Guerrilla Warfare Tactics</h3>
+                    <p class="text-gray-600 mb-4">Shivaji Maharaj perfected ancient Indian guerrilla tactics known as 'Ganimi Kava' (Slash and Run warfare) to defeat larger, more powerful enemies.</p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-start">
+                            <span class="text-yellow-500 mr-2">•</span>
+                            Pioneered mountain combat adapted to Western India's terrain
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-yellow-500 mr-2">•</span>
+                            Emphasized mobility, surprise attacks, and rapid retreat
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-yellow-500 mr-2">•</span>
+                            Used forts as bases for offensive and defensive operations
+                        </li>
+                    </ul>
+                </div>
+                <div class="w-full md:w-1/2 sword-animation">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/48e15e5f-5f08-4748-86cb-c89cf8aa8fd8.png" alt="Illustration of Maratha warriors demonstrating guerrilla warfare tactics in mountainous terrain" class="rounded-lg shadow-lg">
+                </div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row-reverse items-center gap-10">
+                <div class="w-full md:w-1/2">
+                    <h3 class="text-2xl font-semibold mb-4">Founding Father of Indian Navy</h3>
+                    <p class="text-gray-600 mb-4">Shivaji Maharaj recognized the importance of naval power and built the first Indian navy to protect the Konkan coast.</p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-start">
+                            <span class="text-yellow-500 mr-2">•</span>
+                            Established naval bases at Jaigad, Vijaydurg and Sindhudurg
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-yellow-500 mr-2">•</span>
+                            Built specialized ships capable of both coastal and high-sea warfare
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-yellow-500 mr-2">•</span>
+                            Implemented shipbuilding techniques that influenced later naval architecture
+                        </li>
+                    </ul>
+                </div>
+                <div class="w-full md:w-1/2">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/8d818847-845f-4195-905d-f070ec9dfdd2.png" alt="Maratha navy ships sailing along Konkan coast with towering forts visible in the background" class="rounded-lg shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Legacy Section -->
+    <section class="py-20 bg-gray-900 text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8">The Eternal Legacy</h2>
+            <p class="text-xl max-w-3xl mx-auto mb-12">Chhatrapati Shivaji Maharaj's reign marked a renaissance of Indian power, culture, and administration. His innovative governance models and military strategies continue to inspire leaders today.</p>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <div class="bg-gray-800 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-3">Administration</h3>
+                    <p class="text-gray-300">Established Ashta Pradhan council, secular policies, and efficient revenue system that became models for future Indian governance.</p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-3">Military Science</h3>
+                    <p class="text-gray-300">Revolutionized warfare tactics that are studied in military academies worldwide, proving the effectiveness of guerrilla warfare against conventional armies.</p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-3">Cultural Revival</h3>
+                    <p class="text-gray-300">Revived Hindu traditions while ensuring religious tolerance, promoting Marathi language, and establishing benchmarks in architecture and art.</p>
+                </div>
+            </div>
+            
+            <button id="animationBtn" class="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 px-6 rounded-full transition duration-300 flex items-center mx-auto">
+                <span id="btnText">Start Sword Animation</span>
+                <svg id="swordIcon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-2 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7.316 2.67a1 1 0 01.708-.293h7.952a1 1 0 01.707.293l1.08 1.08a1 1 0 01.293.708v7.952a1 1 0 01-.293.707l-1.08 1.08a1 1 0 01-.707.293H8.024a1 1 0 01-.707-.293l-1.08-1.08a1 1 0 01-.293-.707V3.669a1 1 0 01.293-.708l1.08-1.08z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 22l5-5m0 0l5-5m-5 5l-5-5m5 5l5 5" />
+                </svg>
+            </button>
+            <img id="animatedSword" src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f9a0d678-c3f4-4cab-82bc-a4db2e4bab68.png" alt="Detailed illustration of Shivaji Maharaj's famous sword 'Bhavani' with golden hilt and curved blade" class="mx-auto mt-8 max-h-60 hidden">
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-300 py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h3 class="text-xl font-bold text-white mb-2">Chhatrapati Shivaji Maharaj</h3>
+                    <p>The visionary king who built an empire from scratch</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="hover:text-white transition">About</a>
+                    <a href="#" class="hover:text-white transition">Forts</a>
+                    <a href="#" class="hover:text-white transition">Timeline</a>
+                    <a href="#" class="hover:text-white transition">Legacy</a>
+                </div>
+            </div>
+            <hr class="border-gray-700 my-8">
+            <div class="text-center">
+                <p>© 2023 Shivrajyabhishek Divas. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Quote Generator
+        const quotes = [
+            "Freedom is a man's birthright for which Shivaji Maharaj fought his entire life.",
+            "Never bend your head always hold it high, said Shivaji Maharaj to his followers.",
+            "Do not think of the enemy as weak, but do not fear them either.",
+            "Of all the rights of women, the greatest is to be a mother.",
+            "When you are enthusiastic, the mountain also looks like a clay pile."
+        ];
+        
+        document.getElementById('quoteBtn').addEventListener('click', function() {
+            const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+            const quoteElement = document.getElementById('quoteText');
+            
+            quoteElement.textContent = randomQuote;
+            quoteElement.classList.remove('hidden');
+            quoteElement.classList.add('block', 'animate-fadeIn');
+            
+            // Reset animation for subsequent clicks
+            setTimeout(() => {
+                quoteElement.classList.remove('animate-fadeIn');
+            }, 500);
+        });
+        
+        // Fort Details Toggle
+        document.querySelectorAll('.fort-details-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const details = this.nextElementSibling;
+                details.classList.toggle('hidden');
+                this.textContent = details.classList.contains('hidden') ? 'Read More' : 'Show Less';
+            });
+        });
+        
+        // Sword Animation
+        document.getElementById('animationBtn').addEventListener('click', function() {
+            const sword = document.getElementById('animatedSword');
+            const btnText = document.getElementById('btnText');
+            const swordIcon = document.getElementById('swordIcon');
+            
+            if (sword.classList.contains('hidden')) {
+                sword.classList.remove('hidden');
+                sword.classList.add('block', 'animate-bounce');
+                sword.style.animation = 'swordGlow 2s infinite';
+                btnText.textContent = 'Stop Animation';
+                swordIcon.classList.remove('hidden');
+            } else {
+                sword.classList.add('hidden');
+                sword.classList.remove('block', 'animate-bounce');
+                sword.style.animation = '';
+                btnText.textContent = 'Start Sword Animation';
+                swordIcon.classList.add('hidden');
+            }
+        });
+        
+        // Preload images for better performance
+        window.addEventListener('load', function() {
+            const images = [
+                'https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/bc04b6c8-bb7e-44c0-8b39-d24fe3c25a7d.png',
+                'https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/97d5ff86-e2df-40c1-8226-0dbca01a49e8.png',
+                'https://placehold.co/300x200',
+                'https://placehold.co/300x200',
+                'https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/28f567e2-1972-4d39-8ad9-5530751053e1.png',
+                'https://placehold.co/600x400',
+                'https://placehold.co/600x400',
+                'https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/39f6e9a6-67c4-4727-bb3d-ca395ba147f9.png',
+                'https://placehold.co/500x400',
+                'https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ae22512d-b4aa-4ec6-917e-aafadd3c93ba.png'
+            ];
+            
+            images.forEach(src => {
+                const img = new Image();
+                img.src = src;
+            });
+        });
+    </script>
+</body>
+</html>
+
